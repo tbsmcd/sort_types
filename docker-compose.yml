@@ -1,0 +1,10 @@
+version: '3'
+services:
+  sort_type:
+    restart: always
+    build: .
+    container_name: 'sort_python'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - ./scripts:/root/scripts
