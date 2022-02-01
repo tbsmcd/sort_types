@@ -36,6 +36,7 @@ def quick(rand: list) -> list:
 
     # ピボットの選択：適当な値（ピボット（英語版）という）を境界値として選択する
     # statistics.median を使うのは若干反則に見えるので、 Wikipedia にある擬似的な中央値（左端、右端、中央の値の中央値）を用いる
+    # 一般的には左右どちらかの端を使うらしいことは聞いたことがある
     pivot = median(rand)
     big = []
     small = []
