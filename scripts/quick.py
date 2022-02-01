@@ -1,4 +1,3 @@
-import math
 import bubble_plus
 
 # クイックソートは以下の手順で行われる。
@@ -16,9 +15,9 @@ def median(rand: list) -> int:
     if len(rand) <= 2:
         return rand[1]
     else:
-        sample = [rand[0], rand[-1], rand[math.floor(len(rand)/2)]]
+        sample = [rand[0], rand[-1], rand[len(rand)//2]]
         sample = bubble_plus.bubble_plus(sample)
-        return sample[math.floor(len(sample)/2)]
+        return sample[len(sample)//2]
 
 
 def quick(rand: list) -> list:
