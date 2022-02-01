@@ -8,4 +8,5 @@ def bubble(rand: list) -> list:
     return rand
 
 
-print(bubble([2, 3, 1, 9, 4, 0, 7]))
+if __name__ == '__main__':
+    print(bubble([2, 3, 1, 9, 4, 0, 7]))

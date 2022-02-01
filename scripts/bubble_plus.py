@@ -13,3 +13,6 @@ def bubble_plus(rand: list) -> list:
             break
     return rand
 
+
+if __name__ == '__main__':
+    print(bubble_plus([2, 3, 1, 9, 4, 0, 7]))
