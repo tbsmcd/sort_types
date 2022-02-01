@@ -36,13 +36,13 @@ def quick(rand: list) -> list:
         return rand
 
     # ピボットの選択：適当な値（ピボット（英語版）という）を境界値として選択する
-    # statistics.median を使うのは若干反則に見えるので、 Wikipedia にある擬似的な中央値を用いる
+    # statistics.median を使うのは若干反則に見えるので、 Wikipedia にある擬似的な中央値（左端、右端、中央の値の中央値）を用いる
     pivot = median(rand)
     big = []
     small = []
     med = []
     # ピボット以上/ピボット未満に2分割する
-    # ただしピボットが「ピボット以上」の左端に来るよう隔離しておく
+    # ただしピボットが「ピボット以上」の左端に来るよう隔離しておくので実際は3分割
     for i in rand:
         if i == pivot:
             med.append(i)
