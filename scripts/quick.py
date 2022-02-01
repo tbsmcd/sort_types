@@ -22,14 +22,27 @@ def median(rand: list) -> int:
 
 
 def quick(rand: list) -> list:
+    # 分割区間が整列済みなら再帰を打ち切る
     if len(rand) <= 1:
+        # 要素数が1ならば当然ソート済み
         return rand
+    is_sorted = True
+    for i in range(len(rand) - 1):
+        if rand[i] > rand[i + 1]:
+            is_sorted = False
+            break
+    if is_sorted is True:
+        # ソート済みを組み込み関数で確認したら反則だと考えたので、地道に比較する
+        return rand
+
     # ピボットの選択：適当な値（ピボット（英語版）という）を境界値として選択する
-    # statistics.median を使うのは若干反則に見えるので
+    # statistics.median を使うのは若干反則に見えるので、 Wikipedia にある擬似的な中央値を用いる
     pivot = median(rand)
     big = []
     small = []
     med = []
+    # ピボット以上/ピボット未満に2分割する
+    # ただしピボットが「ピボット以上」の左端に来るよう隔離しておく
     for i in rand:
         if i == pivot:
             med.append(i)
@@ -37,6 +50,7 @@ def quick(rand: list) -> list:
             big.append(i)
         else:
             small.append(i)
+    # 再帰
     small = quick(small)
     big = quick(big)
     # 左から small, med, big の順に並べる
