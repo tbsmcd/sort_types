@@ -39,6 +39,7 @@ def quick(rand: list) -> list:
             small.append(i)
     small = quick(small)
     big = quick(big)
+    # 左から small, med, big の順に並べる
     small.extend(med)
     small.extend(big)
     return small
