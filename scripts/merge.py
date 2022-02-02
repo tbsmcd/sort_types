@@ -10,14 +10,14 @@
 # この手順を再現する
 
 
-import bubble_plus
+import quick
 
 
 def merge_sort(rand: list) -> list:
     # 分割された各データ列で、含まれるデータが設定個数以下ならそれを別の高速なアルゴリズムでソートして返す
     if len(rand) <= 3:
-        # 高速？
-        return bubble_plus.bubble_plus(rand)
+        # 高速
+        return quick.quick(rand)
     # データ列を分割する（通常、二等分する）
     # 再帰的に適用してマージソートする
     left = merge_sort(rand[:len(rand)//2])
